@@ -1,15 +1,15 @@
 //main.dart
-import 'package:firebase_project/providers/chat_provider.dart';
+import 'package:firebase_project/presentation/providers/chat_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 // import 'package:firebase_project/screens/splash.dart';
-import 'package:firebase_project/screens/chat.dart';
+import 'package:firebase_project/presentation/screens/chat.dart';
 // import 'firebase_options.dart';
-import 'package:firebase_project/screens/auth.dart';
+import 'package:firebase_project/presentation/screens/auth.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_project/providers/authentication_provider.dart';
+import 'package:firebase_project/presentation/providers/authentication_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

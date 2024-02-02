@@ -1,8 +1,8 @@
 //chat.dart
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_project/providers/authentication_provider.dart';
-import 'package:firebase_project/widgets/chat_message.dart';
-import 'package:firebase_project/widgets/new_message.dart';
+import 'package:firebase_project/presentation/providers/authentication_provider.dart';
+import 'package:firebase_project/presentation/widgets/chat_message.dart';
+import 'package:firebase_project/presentation/widgets/new_message.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';

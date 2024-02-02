@@ -1,7 +1,7 @@
 //chat_message
 
-import 'package:firebase_project/providers/chat_provider.dart';
-import 'package:firebase_project/widgets/message_bubble.dart';
+import 'package:firebase_project/presentation/providers/chat_provider.dart';
+import 'package:firebase_project/presentation/widgets/message_bubble.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
