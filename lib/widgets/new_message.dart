@@ -29,7 +29,6 @@ class _NewMessageState extends State<NewMessage> {
     final pickedImage = await ImagePicker().pickImage(
       source: ImageSource.camera,
       imageQuality: 50,
-      maxWidth: 150,
     );
 
     if (pickedImage == null) {
@@ -45,7 +44,6 @@ class _NewMessageState extends State<NewMessage> {
     final pickedImage = await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 50,
-      maxWidth: 150,
     );
 
     if (pickedImage == null) {
@@ -111,9 +109,9 @@ class _NewMessageState extends State<NewMessage> {
                   child: _selectedImage != null
                       ? Image.file(
                           _selectedImage!,
-                          width: 150,
+                          width: double.infinity,
                           height: 150,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitHeight,
                         )
                       : const SizedBox(
                           height: 0,
