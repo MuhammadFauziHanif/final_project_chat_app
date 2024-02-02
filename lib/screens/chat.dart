@@ -17,7 +17,8 @@ class ChatScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              context.read<AuthenticationProvider>().signOut();
+              Provider.of<AuthenticationProvider>(context, listen: false)
+                  .signOut();
             },
             icon: const Icon(Icons.exit_to_app),
           ),

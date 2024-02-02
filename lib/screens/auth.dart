@@ -37,7 +37,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
     _form.currentState!.save();
 
-    final authProvider = context.read<AuthenticationProvider>();
+    final authProvider =
+        Provider.of<AuthenticationProvider>(context, listen: false);
 
     try {
       setState(() {

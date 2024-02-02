@@ -84,12 +84,12 @@ class _NewMessageState extends State<NewMessage> {
       imageUrl = await ref.getDownloadURL();
     }
 
-    context.read<ChatProvider>().sendMessage(
-          enteredMessage,
-          userData['image_url'],
-          userData['username'],
-          imageUrl,
-        );
+    Provider.of<ChatProvider>(context, listen: false).sendMessage(
+      enteredMessage,
+      userData['image_url'],
+      userData['username'],
+      imageUrl,
+    );
 
     setState(() {
       _selectedImage = null;

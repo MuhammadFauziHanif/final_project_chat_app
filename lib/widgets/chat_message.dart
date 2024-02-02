@@ -14,7 +14,7 @@ class ChatMessages extends StatelessWidget {
     final authenticatedUser = FirebaseAuth.instance.currentUser!;
 
     return StreamBuilder(
-      stream: context.read<ChatProvider>().getChatStream(),
+      stream: Provider.of<ChatProvider>(context, listen: false).getChatStream(),
       builder: (ctx, chatSnapshots) {
         if (chatSnapshots.connectionState == ConnectionState.waiting) {
           return const Center(
