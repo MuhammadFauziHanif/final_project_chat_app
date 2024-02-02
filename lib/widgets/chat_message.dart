@@ -1,9 +1,10 @@
 //chat_message
 
+import 'package:firebase_project/providers/chat_provider.dart';
 import 'package:firebase_project/widgets/message_bubble.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ChatMessages extends StatelessWidget {
   const ChatMessages({super.key});
@@ -13,13 +14,7 @@ class ChatMessages extends StatelessWidget {
     final authenticatedUser = FirebaseAuth.instance.currentUser!;
 
     return StreamBuilder(
-      stream: FirebaseFirestore.instance
-          .collection('chat')
-          .orderBy(
-            'createdAt',
-            descending: true,
-          )
-          .snapshots(),
+      stream: context.read<ChatProvider>().getChatStream(),
       builder: (ctx, chatSnapshots) {
         if (chatSnapshots.connectionState == ConnectionState.waiting) {
           return const Center(

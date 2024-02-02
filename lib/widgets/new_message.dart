@@ -2,9 +2,11 @@
 import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_project/providers/chat_provider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 
 class NewMessage extends StatefulWidget {
   const NewMessage({super.key});
@@ -82,14 +84,12 @@ class _NewMessageState extends State<NewMessage> {
       imageUrl = await ref.getDownloadURL();
     }
 
-    FirebaseFirestore.instance.collection('chat').add({
-      'text': enteredMessage,
-      'createdAt': Timestamp.now(),
-      'userId': user.uid,
-      'username': userData.data()!['username'],
-      'userImage': userData.data()!['image_url'],
-      'image': imageUrl,
-    });
+    context.read<ChatProvider>().sendMessage(
+          enteredMessage,
+          userData['image_url'],
+          userData['username'],
+          imageUrl,
+        );
 
     setState(() {
       _selectedImage = null;
