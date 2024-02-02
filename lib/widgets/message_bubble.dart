@@ -138,7 +138,7 @@ class MessageBubble extends StatelessWidget {
                             image!,
                             height: 150, // Adjust height as needed
                             width: double.infinity,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fitHeight,
                           ),
                         Text(
                           message,
