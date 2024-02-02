@@ -7,13 +7,18 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_project/screens/chat.dart';
 // import 'firebase_options.dart';
 import 'package:firebase_project/screens/auth.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_project/providers/authentication_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      // options: DefaultFirebaseOptions.currentPlatform,
-      );
-  runApp(const App());
+  await Firebase.initializeApp();
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AuthenticationProvider(),
+      child: const App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
@@ -29,7 +34,7 @@ class App extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 63, 17, 177)),
       ),
       home: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
+          stream: context.read<AuthenticationProvider>().authStateChanges(),
           builder: (ctx, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               // return const SplashScreen();
