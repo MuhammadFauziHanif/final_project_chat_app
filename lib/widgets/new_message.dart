@@ -93,7 +93,9 @@ class _NewMessageState extends State<NewMessage> {
       'image': imageUrl,
     });
 
-    _selectedImage = null; // Reset selected image after sending the message
+    setState(() {
+      _selectedImage = null;
+    });
   }
 
   @override
